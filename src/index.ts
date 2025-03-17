@@ -68,6 +68,14 @@ const files = {
             }
         }
 
+        const validProxies = fs.readFileSync(files.validProxies, "utf-8")
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => 
+        line.startsWith("http://")  ||
+        line.startsWith("socks://")
+        );
+
         if (!fs.existsSync(files.proxies)) {
             logger.error(`${files.proxies} does not exists.`);
             try {
@@ -100,7 +108,7 @@ const files = {
 ╔═╗╦═╗╔═╗═╗ ╦╦ ╦  ╔═╗╦ ╦╔═╗╔═╗╦╔═╔═╗╦═╗
 ╠═╝╠╦╝║ ║╔╩╦╝╚╦╝  ║  ╠═╣║╣ ║  ╠╩╗║╣ ╠╦╝
 ╩  ╩╚═╚═╝╩ ╚═ ╩   ╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝╩╚═
-validProxies: ${proxies.length}
+validProxies: ${validProxies.length}
 ╭──────────────────────────────────────╮
 │ 1: Proxy checker                     │
 │ 2: Set timeout                       │
