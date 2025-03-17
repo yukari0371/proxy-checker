@@ -1,0 +1,13 @@
+{
+  "name": "proxy-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/axios": "^0.14.4",
+    "@types/node": "^22.13.10",
+    "axios": "^1.8.3",
+    "https-proxy-agent": "^7.0.6",
+    "socks-proxy-agent": "^8.0.5"
+  }
+}
